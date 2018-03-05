@@ -12,20 +12,20 @@ class ViewController: UIViewController {
     var numberOfPairOfCards : Int{
         return (cardButtons.count + 1) / 2
     }
-    lazy var game = Game(numberOfPairsOfCards: numberOfPairOfCards)
+    private lazy var game = Game(numberOfPairsOfCards: numberOfPairOfCards)
     
     @IBOutlet var cardButtons: [UIButton]!
     
     @IBOutlet weak var flipCountLabel: UILabel!
     
-    var flipCount = 0{
+    private(set) var flipCount = 0{
         didSet{
             flipCountLabel.text = "Flips: \(flipCount)"
         }
     }
     
-    var emojiChoices = ["🎃", "👻", "👿", "👹", "👺", "☠️", "💀", "👽"]
-    var emoji = [Int: String]()
+    private var emojiChoices = ["🎃", "👻", "👿", "👹", "👺", "☠️", "💀", "👽"]
+    private var emoji = [Int: String]()
     
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount += 1
