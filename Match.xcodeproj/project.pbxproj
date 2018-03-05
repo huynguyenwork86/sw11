@@ -12,6 +12,8 @@
 		00A02710204C99BE00CD455C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A0270E204C99BE00CD455C /* Main.storyboard */; };
 		00A02712204C99BE00CD455C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00A02711204C99BE00CD455C /* Assets.xcassets */; };
 		00A02715204C99BE00CD455C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A02713204C99BE00CD455C /* LaunchScreen.storyboard */; };
+		00AFB4B8204CBA1300B7D4FD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AFB4B7204CBA1300B7D4FD /* Card.swift */; };
+		00AFB4BA204CBD1500B7D4FD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AFB4B9204CBD1500B7D4FD /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		00A02711204C99BE00CD455C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00A02714204C99BE00CD455C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00A02716204C99BE00CD455C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00AFB4B7204CBA1300B7D4FD /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		00AFB4B9204CBD1500B7D4FD /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				00A0271C204C99CE00CD455C /* Supporting Files */,
 				00A0270C204C99BE00CD455C /* ViewController.swift */,
+				00AFB4B7204CBA1300B7D4FD /* Card.swift */,
+				00AFB4B9204CBD1500B7D4FD /* Game.swift */,
 				00A0270E204C99BE00CD455C /* Main.storyboard */,
 				00A02716204C99BE00CD455C /* Info.plist */,
 			);
@@ -145,7 +151,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				00A0270D204C99BE00CD455C /* ViewController.swift in Sources */,
+				00AFB4B8204CBA1300B7D4FD /* Card.swift in Sources */,
 				00A0270B204C99BE00CD455C /* AppDelegate.swift in Sources */,
+				00AFB4BA204CBD1500B7D4FD /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
