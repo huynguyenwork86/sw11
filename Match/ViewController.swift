@@ -9,8 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    lazy var game = Game(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+    var numberOfPairOfCards : Int{
+        return (cardButtons.count + 1) / 2
+    }
+    lazy var game = Game(numberOfPairsOfCards: numberOfPairOfCards)
     
     @IBOutlet var cardButtons: [UIButton]!
     
