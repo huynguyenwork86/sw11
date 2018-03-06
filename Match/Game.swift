@@ -59,11 +59,23 @@ struct Game{
             let card = Card();
             cards += [card, card]
         }
-        //TODO: shuffle the cards
+        cards.shuffle()
+//        //TODO: shuffle the cards
     }
 }
 extension Collection {
     var oneAndOnly: Element?{
         return count == 1 ? first : nil
+    }
+}
+extension Array
+{
+    /** Randomizes the order of an array's elements. */
+    mutating func shuffle()
+    {
+        for _ in 0..<count
+        {
+            sort { (_,_) in arc4random() < arc4random() }
+        }
     }
 }
