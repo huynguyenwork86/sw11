@@ -37,8 +37,16 @@ class ViewController: UIViewController {
     }
     
 //    private var emojiChoices = ["🎃", "👻", "👿", "👹", "👺", "☠️", "💀", "👽"]
-    private let finalEmojiChoices = "🎃👻👿👹👺☠️💀👽"
-    private lazy var emojiChoices = finalEmojiChoices
+    private static let finalEmojiChoices = [
+        "🎃👻👿👹👺☠️💀👽",
+        "😃😅😊😉😗😛",
+        "🐶🐱🐭🐹🐰🦊",
+        "🥃🍺🍻🥂🍸🍹"
+    ]
+    private static func getATheme()->String{
+        return finalEmojiChoices[finalEmojiChoices.count.arc4random]
+    }
+    private lazy var emojiChoices = ViewController.getATheme()
     private var emoji = [Card: String]()
     
     @IBAction private func touchCard(_ sender: UIButton) {
@@ -85,7 +93,7 @@ class ViewController: UIViewController {
     }
     @IBAction private func touchNew(_ sender: UIButton) {
         flipCount = 0
-        emojiChoices = finalEmojiChoices
+        emojiChoices = ViewController.getATheme()
         emoji = [Card:String]()
         game = Game(numberOfPairsOfCards: numberOfPairOfCards)
         udpateViewFromModel()
