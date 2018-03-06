@@ -16,18 +16,31 @@ class ViewController: UIViewController {
     
     @IBOutlet var cardButtons: [UIButton]!
     
-    @IBOutlet weak var flipCountLabel: UILabel!
-    
-    private(set) var flipCount = 0{
+    @IBOutlet private weak var flipCountLabel: UILabel!{
         didSet{
-            flipCountLabel.text = "Flips: \(flipCount)"
+            updateFlipCountLabel()
         }
     }
     
-    private var emojiChoices = ["🎃", "👻", "👿", "👹", "👺", "☠️", "💀", "👽"]
-    private var emoji = [Int: String]()
+    private(set) var flipCount = 0 {
+        didSet{
+            updateFlipCountLabel()
+        }
+    }
+    private func updateFlipCountLabel(){
+        let attributes: [NSAttributedStringKey:Any] = [
+            .strokeWidth : 5.0,
+            .strokeColor : UIColor.orange
+        ]
+        let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
+        flipCountLabel.attributedText = attributedString
+    }
     
-    @IBAction func touchCard(_ sender: UIButton) {
+//    private var emojiChoices = ["🎃", "👻", "👿", "👹", "👺", "☠️", "💀", "👽"]
+    private var emojiChoices = "🎃👻👿👹👺☠️💀👽"
+    private var emoji = [Card: String]()
+    
+    @IBAction private func touchCard(_ sender: UIButton) {
         flipCount += 1
         if let cardNumber = cardButtons.index(of: sender){
             game.chooseCard(at: cardNumber)
@@ -52,10 +65,11 @@ class ViewController: UIViewController {
         }
     }
     func emoji(for card: Card) -> String{
-        if emoji[card.identifier] == nil, emojiChoices.count > 0{
-            emoji[card.identifier] = emojiChoices.remove(at:emojiChoices.count.arc4random)
+        if emoji[card] == nil, emojiChoices.count > 0{
+            let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
+            emoji[card] = String(emojiChoices.remove(at: randomStringIndex))
         }
-        return emoji[card.identifier] ?? "?"
+        return emoji[card] ?? "?"
     }
     
     func chooseCard(emoji: String, on button: UIButton){

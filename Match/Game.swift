@@ -7,24 +7,28 @@
 //
 
 import Foundation
-class Game{
+struct Game{
     private(set) var cards = [Card]()
     
     private var indexOfOneAndOnlyFaceUpCard: Int?{
         get{
-            var foundIndex: Int?
-            for index in cards.indices{
-                if(cards[index].isFaceUp){
-                    if foundIndex == nil{
-                        foundIndex = index
-                    }
-                    else{
-                        return nil
-                    }
-                }
-            }
-            return foundIndex
+//            var foundIndex: Int?
+//            for index in cards.indices{
+//                if(cards[index].isFaceUp){
+//                    if foundIndex == nil{
+//                        foundIndex = index
+//                    }
+//                    else{
+//                        return nil
+//                    }
+//                }
+//            }
+//            return foundIndex
+            let faceUpCardIndices = cards.indices.filter{cards[$0].isFaceUp}
+//            return faceUpCardIndices.count == 1 ? faceUpCardIndices.first : nil
+            return faceUpCardIndices.oneAndOnly
         }
+        
         set{
             for index in cards.indices{
                 cards[index].isFaceUp = (index == newValue)
@@ -32,12 +36,12 @@ class Game{
         }
     }
     
-    func chooseCard(at index: Int) {
+    mutating func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "Game chooseCard(at: \(index)): chosen card in snot in the cards")
         if !cards[index].isMatched{
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
                 //check if cards match
-                if(cards[matchIndex].identifier == cards[index].identifier)
+                if(cards[matchIndex] == cards[index])
                 {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
@@ -56,5 +60,10 @@ class Game{
             cards += [card, card]
         }
         //TODO: shuffle the cards
+    }
+}
+extension Collection {
+    var oneAndOnly: Element?{
+        return count == 1 ? first : nil
     }
 }
