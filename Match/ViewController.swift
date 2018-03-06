@@ -37,7 +37,8 @@ class ViewController: UIViewController {
     }
     
 //    private var emojiChoices = ["🎃", "👻", "👿", "👹", "👺", "☠️", "💀", "👽"]
-    private var emojiChoices = "🎃👻👿👹👺☠️💀👽"
+    private let finalEmojiChoices = "🎃👻👿👹👺☠️💀👽"
+    private lazy var emojiChoices = finalEmojiChoices
     private var emoji = [Card: String]()
     
     @IBAction private func touchCard(_ sender: UIButton) {
@@ -82,6 +83,14 @@ class ViewController: UIViewController {
             button.backgroundColor = UIColor.white
         }
     }
+    @IBAction private func touchNew(_ sender: UIButton) {
+        flipCount = 0
+        emojiChoices = finalEmojiChoices
+        emoji = [Card:String]()
+        game = Game(numberOfPairsOfCards: numberOfPairOfCards)
+        udpateViewFromModel()
+    }
+    
 }
 extension Int{
     var arc4random: Int{

@@ -135,22 +135,38 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHE-gh-EXo">
-                                <rect key="frame" x="120" y="730" width="134" height="48"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="39T-L3-07O">
+                                <rect key="frame" x="16" y="730" width="343" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHE-gh-EXo">
+                                        <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="60"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrE-Lk-iAS">
+                                        <rect key="frame" x="175.66666666666663" y="0.0" width="167.33333333333337" height="60"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <state key="normal" title="New">
+                                            <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchNew:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x9c-4P-S2C"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="39T-L3-07O" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="12" id="9NL-v6-bfc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9C6-IH-NAj" secondAttribute="trailing" constant="16" id="CY9-kb-LNY"/>
-                            <constraint firstItem="hHE-gh-EXo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9C6-IH-NAj" secondAttribute="bottom" constant="8" symbolic="YES" id="NuA-uT-1rt"/>
-                            <constraint firstItem="hHE-gh-EXo" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="UHB-Ms-uh5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hHE-gh-EXo" secondAttribute="bottom" id="XB1-9N-OJr"/>
+                            <constraint firstItem="39T-L3-07O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VB6-hM-rtD"/>
                             <constraint firstItem="9C6-IH-NAj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZRE-J1-kcK"/>
                             <constraint firstItem="9C6-IH-NAj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="chv-YK-tqp"/>
+                            <constraint firstItem="39T-L3-07O" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9C6-IH-NAj" secondAttribute="bottom" constant="8" symbolic="YES" id="dk0-Jx-4Es"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="39T-L3-07O" secondAttribute="trailing" constant="16" id="fsU-GT-BaO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
